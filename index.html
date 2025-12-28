@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VIGNAN DHARA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+
+<body>
+
+<!-- AUTH -->
+<div id="auth" class="container">
+<h1>VIGNAN DHARA</h1>
+
+<div id="reg">
+<input id="ru" placeholder="Username">
+<input id="rp" type="password" placeholder="Password">
+<input id="rc" placeholder="Library Code">
+<button onclick="register()">Register</button>
+<p>Already registered? <a onclick="showLogin()">Login</a></p>
+</div>
+
+<div id="log" class="hidden">
+<input id="lu" placeholder="Username">
+<input id="lp" type="password">
+<input id="ld" type="date">
+<button onclick="login()">Login</button>
+</div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dash" class="hidden">
+<div class="top">
+<h1>VIGNAN DHARA</h1>
+<div class="profile">👤 <span id="adminName"></span></div>
+</div>
+
+<div class="grid">
+<div class="circle" onclick="openSec('addBook')">ADD<br>BOOK</div>
+<div class="circle" onclick="openSec('addStudent')">REGISTER<br>STUDENT</div>
+<div class="circle" onclick="openSec('students')">STUDENT<br>DETAILS</div>
+<div class="circle" onclick="openSec('books')">SEARCH<br>BOOKS</div>
+<div class="circle" onclick="openSec('issue')">ISSUE<br>BOOK</div>
+<div class="circle" onclick="openSec('issued')">ISSUED<br>BOOKS</div>
+</div>
+</div>
+
+<!-- ADD BOOK -->
+<div id="addBook" class="container hidden">
+<input id="bn" placeholder="Book Name">
+<input id="bid" placeholder="Book ID">
+<input id="ba" placeholder="Author">
+<input id="bt" type="number" placeholder="Total Copies">
+<button onclick="addBook()">Add Book</button>
+</div>
+
+<!-- STUDENT -->
+<div id="addStudent" class="container hidden">
+<input id="sn" placeholder="Student Name">
+<input id="sid" placeholder="Student ID">
+<input id="sm" placeholder="Mobile">
+<input id="sb" placeholder="Branch">
+<input id="sy" placeholder="Year">
+<button onclick="addStudent()">Register Student</button>
+</div>
+
+<!-- TABLES -->
+<div id="students" class="container hidden"><table id="studTable"></table></div>
+<div id="books" class="container hidden"><table id="bookTable"></table></div>
+
+<div id="issue" class="container hidden">
+<input id="ib" placeholder="Book ID">
+<input id="is" placeholder="Student ID">
+<input id="idate" type="date">
+<button onclick="issueBook()">Issue</button>
+</div>
+
+<div id="issued" class="container hidden">
+<table id="issTable"></table>
+</div>
+
+<!-- JS FILES -->
+<script src="firebase.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
